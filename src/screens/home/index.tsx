@@ -1,5 +1,6 @@
 import { Image, TouchableOpacity, View } from "react-native";
 
+import { TaskList } from "../../components/TaskList";
 import { TextInput } from "../../components/TextInput";
 
 import { styles } from "./styles";
@@ -21,6 +22,8 @@ export function Home() {
             <Image source={require("../../assets/plus.png")} />
           </TouchableOpacity>
         </View>
+
+        <TaskList items={[]} />
       </View>
     </View>
   )
