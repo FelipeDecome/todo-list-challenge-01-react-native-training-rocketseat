@@ -3,31 +3,18 @@ import { Image, TouchableOpacity, View } from "react-native";
 
 import { TasksList } from "../../components/TasksList";
 import { TextInput } from "../../components/TextInput";
-import { Task } from "../../types";
 
+import { useTasks } from "../../context/TasksContext";
 import { styles } from "./styles";
 
 export function Home() {
-  const [tasks, setTasks] = useState<Task[]>([
-    {
-      id: 1,
-      isDone: false,
-      title: "Criar aplicativo"
-    }, {
-      id: 2,
-      isDone: true,
-      title: "Criar componentes"
-    }, {
-      id: 3,
-      isDone: false,
-      title: "Criar estilos",
-    },
-    {
-      id: 4,
-      isDone: false,
-      title: "Integer urna interdum massa libero auctor neque turpis turpis semper."
-    }
-  ])
+  const [newTask, setNewTask] = useState('')
+  const { addTask } = useTasks();
+
+  function handleAddTask() {
+    addTask(newTask);
+    setNewTask('');
+  }
 
   return (
     <View style={styles.container}>
@@ -39,14 +26,20 @@ export function Home() {
         <View style={styles.form}>
           <TextInput
             placeholder="Adicione uma nova tarefa"
+            onChangeText={setNewTask}
+            value={newTask}
           />
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            disabled={!newTask}
+            onPress={handleAddTask}
+            style={styles.button}
+          >
             <Image style={styles.icon} source={require("../../assets/plus.png")} />
           </TouchableOpacity>
         </View>
 
-        <TasksList items={tasks} />
+        <TasksList />
       </View>
     </View>
   )

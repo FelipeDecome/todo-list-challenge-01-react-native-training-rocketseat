@@ -3,6 +3,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 
+import { TasksProvider } from './src/context/TasksContext';
 import { Home } from './src/screens/home';
 
 SplashScreen.preventAutoHideAsync();
@@ -24,13 +25,13 @@ export default function App() {
   }
 
   return (
-    <>
+    <TasksProvider>
       <Home />
       <StatusBar
         barStyle="light-content"
         backgroundColor={"transparent"}
         translucent
       />
-    </>
+    </TasksProvider>
   );
 }
