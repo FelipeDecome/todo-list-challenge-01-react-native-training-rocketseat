@@ -1,14 +1,12 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, TouchableOpacity, View } from "react-native";
 
+import { Task } from "../../types";
+
+import { Checkbox } from "../Checkbox";
 import { Strong } from "../Strong";
+import { Text } from "../Text";
 
 import { styles } from "./styles";
-
-type Task = {
-  id: number;
-  isDone: boolean;
-  title: string;
-}
 
 interface ITasksListProps {
   items: Task[];
@@ -24,10 +22,9 @@ function ListEmptyComponent() {
       </Text>
     </View>
   )
-
 }
 
-export function TaskList({ items }: ITasksListProps) {
+export function TasksList({ items }: ITasksListProps) {
   const totalTasks = items.length;
   const totalDoneTasks = items.filter((item) => item.isDone).length;
 
@@ -57,6 +54,18 @@ export function TaskList({ items }: ITasksListProps) {
         data={items}
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.list}
+        renderItem={({ item }) => (
+          <View style={styles.task}>
+            <Checkbox
+              color={"#5E60CE"}
+              value={item.isDone}
+            />
+            <Text style={[styles.taskText, item.isDone && styles.taskTextDone]}>{item.title}</Text>
+            <TouchableOpacity style={styles.deleteButton}>
+              <Image source={require("../../assets/trash.png")} />
+            </TouchableOpacity>
+          </View>
+        )}
         ListEmptyComponent={ListEmptyComponent}
       />
     </View>

@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Text } from "./Text";
 
 interface IStrongProps {
   children: React.ReactNode;

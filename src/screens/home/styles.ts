@@ -11,6 +11,10 @@ export const styles = StyleSheet.create({
     height: 200,
     justifyContent: "center",
   },
+  logo: {
+    height: 32,
+    objectFit: "contain",
+  },
   main: {
     gap: 32,
     marginTop: -32,
@@ -27,5 +31,9 @@ export const styles = StyleSheet.create({
     height: 52,
     justifyContent: "center",
     width: 52,
+  },
+  icon: {
+    height: 16,
+    width: 16,
   },
 })

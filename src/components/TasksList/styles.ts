@@ -32,6 +32,33 @@ export const styles = StyleSheet.create({
     paddingVertical: 2,
     paddingHorizontal: 8,
   },
+  list: {
+    gap: 8,
+  },
+  task: {
+    alignItems: "center",
+    backgroundColor: "#262626",
+    borderRadius: 8,
+    flexDirection: "row",
+    gap: 8,
+    padding: 12,
+  },
+  taskText: {
+    color: "#F2F2F2",
+    flex: 1,
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  taskTextDone: {
+    color: "#808080",
+    textDecorationLine: "line-through",
+  },
+  deleteButton: {
+    alignItems: "center",
+    height: 32,
+    justifyContent: "center",
+    width: 32,
+  },
   empty: {
     alignItems: "center",
     borderTopWidth: 1,
@@ -42,5 +69,6 @@ export const styles = StyleSheet.create({
   emptyText: {
     color: "#808080",
     fontSize: 14,
+    textAlign: "center",
   },
 })
