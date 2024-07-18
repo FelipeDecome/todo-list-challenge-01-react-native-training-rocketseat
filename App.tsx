@@ -29,7 +29,7 @@ export default function App() {
       <Home />
       <StatusBar
         barStyle="light-content"
-        backgroundColor={"transparent"}
+        backgroundColor="transparent"
         translucent
       />
     </TasksProvider>

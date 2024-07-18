@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 
+import logoSrc from '../../assets/logo.png';
+import plusSrc from '../../assets/plus.png';
 import { TasksList } from "../../components/TasksList";
 import { TextInput } from "../../components/TextInput";
 
@@ -19,7 +21,7 @@ export function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Image style={styles.logo} source={require("../../assets/logo.png")} />
+        <Image style={styles.logo} source={logoSrc} />
       </View>
 
       <View style={styles.main}>
@@ -35,7 +37,7 @@ export function Home() {
             onPress={handleAddTask}
             style={styles.button}
           >
-            <Image style={styles.icon} source={require("../../assets/plus.png")} />
+            <Image style={styles.icon} source={plusSrc} />
           </TouchableOpacity>
         </View>
 

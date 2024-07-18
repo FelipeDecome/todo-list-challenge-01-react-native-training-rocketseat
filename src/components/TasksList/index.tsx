@@ -1,5 +1,7 @@
 import { FlatList, Image, TouchableOpacity, View } from "react-native";
 
+import clipboardSrc from "../../assets/clipboard.png";
+import trashSrc from "../../assets/trash.png";
 import { useTasks } from "../../context/TasksContext";
 
 import { Checkbox } from "../Checkbox";
@@ -8,10 +10,11 @@ import { Text } from "../Text";
 
 import { styles } from "./styles";
 
+
 function ListEmptyComponent() {
   return (
     <View style={styles.empty}>
-      <Image source={require("../../assets/clipboard.png")} />
+      <Image source={clipboardSrc} />
       <Text style={styles.emptyText}>
         <Strong>Você ainda não tem tarefas cadastradas.</Strong>
         {"\nCrie tarefas e organize seus itens a fazer"}
@@ -55,7 +58,7 @@ export function TasksList() {
         renderItem={({ item }) => (
           <View style={styles.task}>
             <Checkbox
-              color={"#5E60CE"}
+              color="#5E60CE"
               value={item.isDone}
               onValueChange={() => toggleTask(item.id)}
             />
@@ -64,7 +67,7 @@ export function TasksList() {
               onPress={() => removeTask(item.id)}
               style={styles.deleteButton}
             >
-              <Image source={require("../../assets/trash.png")} />
+              <Image source={trashSrc} />
             </TouchableOpacity>
           </View>
         )}

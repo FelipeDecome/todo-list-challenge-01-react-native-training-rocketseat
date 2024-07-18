@@ -1,7 +1,8 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 
 import { Alert } from "react-native";
-import { Task } from "../types";
+
+import { Task } from "../models/task";
 
 interface ITasksContext {
   tasks: Task[];
